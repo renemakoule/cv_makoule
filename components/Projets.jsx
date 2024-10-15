@@ -23,33 +23,32 @@ export default function InfiniteMovingCardsDemo() {
 
 const testimonials = [
   {
-    image: "/work/1.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025109/1_c3fetz.png",
     link: "/projects"
   },
   {
-    image: "/work/2.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025109/2_m05idt.png",
     link: "/projects"
   },
   {
-    image: "/work/3.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025108/3_tbxac4.png",
     link: "/projects"
   },
   {
-    image: "/work/4.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025109/4_ezw76m.png",
     link: "/projects"
   },
   {
-    image: "/work/5.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025109/5_buea4r.png",
     link: "/projects"
   },
   {
-    image: "/work/6.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025110/6_cqbp01.png",
     link: "/projects"
   },
   {
-    image: "/work/7.png",
+    image: "https://res.cloudinary.com/dqljfnmpk/image/upload/v1729025110/7_wpfqqa.png",
     link: "/projects"
   },
 ]
-
 // Modifiez le composant InfiniteMovingCards pour inclure les liens
