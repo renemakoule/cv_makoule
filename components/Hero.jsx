@@ -47,7 +47,7 @@ const Hero = () => {
         <div className="flex justify-between gap-x-8 mt-10">
           {/* text */}
           <div className="flex flex-col items-center justify-center mx-auto xl:mx-0 text-center xl:text-left">
-          <p className="bg-zinc-800 hover:bg-gradient-to-r from-[#531849] via-[#07596d] to-[#dd059c] rounded-full w-full px-3 py-1 text-xs space-x-2 flex md:hidden">
+          <p className="bg-zinc-800 hover:bg-gradient-to-r from-[#531849] via-[#07596d] to-[#dd059c] rounded-full w-full px-3 py-1 text-xs space-x-2 flex items-center justify-center lg:hidden">
                   <SparklesText 
                   text='New'
                   className="text-xs bg-white text-black hover:bg-white hover:text-[#fd4e22] rounded-full px-2"
