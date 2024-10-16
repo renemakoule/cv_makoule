@@ -510,3 +510,13 @@
   background-color: #1a1a1a;
   color: #ffffff;
 }
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
