@@ -1,8 +1,29 @@
+'use client'
+
+import { useState, useEffect } from "react"
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import LoadingAnimation from '@/components/LoadingAnimation'
 
 export default function TimelineDemo() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Simuler un temps de chargement
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 5000) // Ajustez ce délai selon vos besoins
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return <LoadingAnimation />
+  }
+
+
   const data = [
     {
       title: "2024",
