@@ -1,23 +1,51 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 
-export default function LoadingAnimation() {
+const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8']
+
+export default function CenteredLoadingAnimation() {
+  const [balls, setBalls] = useState([])
+
+  useEffect(() => {
+    const newBalls = Array.from({ length: 8 }, (_, i) => {
+      const angle = (i / 8) * 2 * Math.PI
+      return {
+        id: i,
+        initialX: Math.cos(angle) * 100,
+        initialY: Math.sin(angle) * 100,
+        color: colors[i % colors.length]
+      }
+    })
+    setBalls(newBalls)
+  }, [])
+
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="flex space-x-2">
-        {[0, 1, 2].map((index) => (
+    <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+      <div className="relative w-64 h-64">
+        {balls.map((ball) => (
           <motion.div
-            key={index}
-            className="w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-600 dark:bg-pink-700 rounded-full"
+            key={ball.id}
+            className="absolute rounded-full"
+            style={{
+              width: '20px',
+              height: '20px',
+              backgroundColor: ball.color,
+              top: '50%',
+              left: '50%',
+            }}
+            initial={{ x: ball.initialX, y: ball.initialY }}
             animate={{
+              x: [ball.initialX, 0, ball.initialX],
+              y: [ball.initialY, 0, ball.initialY],
               scale: [1, 1.5, 1],
-              opacity: [1, 0.5, 1],
             }}
             transition={{
-              duration: 1,
+              duration: 5,
               repeat: Infinity,
-              delay: index * 0.2,
+              ease: "easeInOut",
+              times: [0, 0.5, 1]
             }}
           />
         ))}
