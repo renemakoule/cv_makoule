@@ -500,3 +500,13 @@
     }
   }
 }
+
+.main.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.main.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
