@@ -47,7 +47,7 @@ const Socials = ({ containerStyles, iconStyles }) => {
             exit={{ scale: 0 }}
             transition={{ delay: index * 0.1 }}
           >
-            <Link href={icon.path}>
+            <Link href={icon.path} target=''>
               <motion.div 
                 className={`${iconStyles}`}
                 whileHover={{ scale: 1.2, rotate: 360 }}
