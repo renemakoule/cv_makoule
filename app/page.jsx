@@ -8,18 +8,9 @@ import Service from "@/components/Service"
 import Projets from '@/components/Projets'
 import LoadingAnimation from '@/components/LoadingAnimation'
 
-export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
+// Custom hook for theme management
+function useTheme() {
   const [theme, setTheme] = useState('light')
-
-  useEffect(() => {
-    // Simuler un temps de chargement
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 5000) // Ajustez ce délai selon vos besoins
-
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     const updateTheme = () => {
@@ -27,20 +18,33 @@ export default function Home() {
       const sunriseHour = 6 // 6h du matin
       const sunsetHour = 18 // 18h du soir
 
-      if (currentHour >= sunriseHour && currentHour < sunsetHour) {
-        setTheme('light')
-      } else {
-        setTheme('dark')
-      }
+      setTheme(currentHour >= sunriseHour && currentHour < sunsetHour ? 'light' : 'dark')
     }
 
-    // Mettre à jour le thème immédiatement
+    // Update theme immediately
     updateTheme()
 
-    // Mettre à jour le thème toutes les minutes
+    // Set up an interval to check every minute
     const interval = setInterval(updateTheme, 60000)
 
+    // Clean up interval on component unmount
     return () => clearInterval(interval)
+  }, [])
+
+  return theme
+}
+
+export default function Home() {
+  const [isLoading, setIsLoading] = useState(true)
+  const theme = useTheme()
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 5000) // Adjust this delay as needed
+
+    return () => clearTimeout(timer)
   }, [])
 
   if (isLoading) {
