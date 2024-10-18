@@ -135,7 +135,7 @@ const About = () => {
             <div className='hidden xl:flex flex-1 relative ml-10 rounded-full'>
             <DevImg containerStyles='bg-about_shape_light dark:bg-about_shape_dark
                                 w-[365px] h-[365px] bg-no-repeat relative
-            ' imgSrc='/dev.png' />
+            ' imgSrc='https://res.cloudinary.com/dqljfnmpk/image/upload/v1729279174/dev_hdbbcq.png' />
              </div>
         {/**tabs */}
               <div className='flex-1'>
