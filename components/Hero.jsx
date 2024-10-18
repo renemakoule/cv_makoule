@@ -17,6 +17,7 @@ import BoxReveal from "@/components/ui/box-reveal";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { motion } from "framer-motion";
 import SparklesText from "@/components/ui/sparkles-text"
+import DownloadButton from "./DownloadButton";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -39,6 +40,9 @@ const itemVariants = {
     },
   },
 };
+
+const pdfUrl = '/Makoule_cv.pdf'; // Remplacez par l'URL correcte du fichier PDF
+  const pdfFileName = 'Makoule.pdf';
 
 const Hero = () => {
   return (
@@ -78,11 +82,7 @@ const Hero = () => {
                   Contact me <Send size={16} />
                 </RainbowButton>
               </Link>
-              <Link href="/">
-                <Button className="gap-x-2 animate-bounce">
-                  Get Cv <Download size={18} />
-                </Button>
-              </Link>
+              <DownloadButton fileUrl={pdfUrl} fileName={pdfFileName} />
             </div>
 
             {/**social */}
