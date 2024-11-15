@@ -174,7 +174,7 @@ export default function WeatherInterface() {
       transition={{ duration: 1 }}
     >
       {weather && weather.condition === 'rain' && <RainAnimation />}
-      <Card className="w-full max-w-sm md:max-w-md lg:max-w-lg bg-gradient-to-tr from-purple-700 via-cyan-300 backdrop-blur-md border-black/30 relative z-10">
+      <Card className="w-full max-w-[350px] md:max-w-md lg:max-w-lg bg-gradient-to-tr from-purple-700 via-cyan-300 backdrop-blur-md border-black/30 relative z-10">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Météo en temps réel</CardTitle>
         </CardHeader>
