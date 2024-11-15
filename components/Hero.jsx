@@ -18,6 +18,7 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 import { motion } from "framer-motion";
 import SparklesText from "@/components/ui/sparkles-text"
 import DownloadButton from "./DownloadButton";
+import WordFadeIn from "@/components/ui/word-fade-in"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -56,7 +57,7 @@ const Hero = () => {
                   text=' be curious'
                   className="text-xs bg-white text-black hover:bg-white hover:text-[#fd4e22] rounded-full px-2"
                   />
-                   <SparklesText text="Open with a PC for a better visual"
+                   <WordFadeIn words="Open with a PC for a better visual"
                     className="text-xs text-white poppins-extralight-italic"
                   />
                 </div>
