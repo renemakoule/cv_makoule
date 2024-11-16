@@ -37,6 +37,62 @@ const RainAnimation = () => (
   </div>
 )
 
+// Nouveau composant pour l'animation des nuages
+const CloudAnimation = ({ delay }) => (
+  <motion.div
+    className="absolute bg-white rounded-full opacity-80"
+    initial={{ x: -100, opacity: 0 }}
+    animate={{ x: '100vw', opacity: 0.8 }}
+    transition={{
+      duration: 20,
+      repeat: Infinity,
+      delay: delay,
+      ease: "linear"
+    }}
+    style={{
+      top: `${Math.random() * 50}%`,
+      width: `${50 + Math.random() * 100}px`,
+      height: `${30 + Math.random() * 60}px`,
+    }}
+  />
+)
+
+const CloudsAnimation = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {[...Array(5)].map((_, i) => (
+      <CloudAnimation key={i} delay={i * 4} />
+    ))}
+  </div>
+)
+
+// Nouveau composant pour l'animation des oiseaux
+const Bird = ({ delay }) => (
+  <motion.div
+    className="absolute text-black text-2xl"
+    initial={{ x: -50, y: Math.random() * 200 }}
+    animate={{ 
+      x: '100vw',
+      y: [Math.random() * 200, Math.random() * 200 + 50, Math.random() * 200],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      delay: delay,
+      ease: "linear"
+    }}
+  >
+    &#8250;
+  </motion.div>
+)
+
+const BirdAnimation = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {[...Array(3)].map((_, i) => (
+      <Bird key={i} delay={i * 3} />
+    ))}
+  </div>
+)
+
 export default function WeatherInterface() {
   const [currentTime, setCurrentTime] = useState(new Date())
   const [weather, setWeather] = useState(null)
@@ -168,13 +224,15 @@ export default function WeatherInterface() {
 
   return (
     <motion.div 
-      className={`min-h-screen flex items-center justify-center ${getBackgroundClass()} transition-colors duration-1000 relative overflow-hidden`}
+      className={`min-h-screen flex items-center justify-center bg-white/30 transition-colors duration-1000 relative overflow-hidden`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       {weather && weather.condition === 'rain' && <RainAnimation />}
-      <Card className="w-full max-w-[350px] md:max-w-[512px] lg:max-w-[720px] bg-gradient-to-tr from-purple-700 via-cyan-300 backdrop-blur-md border-black/30 relative z-10">
+      {weather && (weather.condition === 'clear' || weather.condition === 'clouds') && <CloudsAnimation />}
+      {weather && weather.condition === 'clear' && isDaytime && <BirdAnimation />}
+      <Card className="w-full max-w-[350px] md:max-w-[512px] lg:max-w-[720px] bg-gradient-to-tr from-purple-700/30 via-cyan-300/30 backdrop-blur-md border-black/30 relative z-10">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Météo en temps réel</CardTitle>
         </CardHeader>
