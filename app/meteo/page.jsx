@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -292,6 +293,13 @@ export default function WeatherInterface() {
                 ))}
               </div>
             </div>
+            
+{/*             meteoplus */}
+            <div className="flex items-center justify-center">
+        <p>plus de meteo?</p>
+        <Link href='http://localhost:3002/'>clic ici</Link>
+      </div>
+{/*             end meteoplus */}
             
             {/* Game Section */}
             <Dialog open={isGameOpen} onOpenChange={setIsGameOpen}>
