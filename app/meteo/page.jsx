@@ -297,7 +297,7 @@ export default function WeatherInterface() {
 {/*             meteoplus */}
             <div className="flex items-center justify-center">
         <p>plus de meteo?</p>
-        <Link href='http://localhost:3002/'>clic ici</Link>
+        <Link href='http://localhost:3002/' target='_blank'>clic ici</Link>
       </div>
 {/*             end meteoplus */}
             
